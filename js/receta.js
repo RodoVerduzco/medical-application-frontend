@@ -97,7 +97,7 @@ function mod(){
     var ssn = getParameterByName('ssn');
  
     var data_to_send = {
-        "action" : "ADD_PRESCRIPTION",
+        "action" : "MODIFY_PRESCRIPTION",
         "patient_name" : f_nombre,
         "doctor_name" : f_medico,
         "sickness" : f_padecimiento,
