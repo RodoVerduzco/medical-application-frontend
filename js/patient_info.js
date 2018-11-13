@@ -100,7 +100,9 @@ function loadRecetas(){
 
             html += '<div id="collapse'+i+'" class="'+showTab+'" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
             html += '<div class="card-body">';
-            html += diagnose+' '+drug+' '+duration+' '+interval+' '+sickness+' '+symptoms+' ';
+            html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
+            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
+            html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
        
             html += '</div>';
             html += '</div>';
