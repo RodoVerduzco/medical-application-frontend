@@ -109,13 +109,13 @@ function loadRecetas(){
                 html += '<a class="btn btn-primary" href="modificarReceta.html?ssn='+getParameterByName('ssn')+'&date='+date+'">';
                 html += 'Modificar receta';
                 html += '</a>'; 
-                html += '<button class="btn btn-danger" onclick="terminateDiagnosis('+getParameterByName('ssn')+')">';
+                html += '<button class="btn btn-danger" onclick="terminateTreatment('+getParameterByName('ssn')+')">';
                 html += 'Terminar tratamiento';
                 html += '</button>';
             }
 
             html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
-            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
+            html += '<h5>Padecimientos:</h5> '+sickness+'. <br>';
             html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
             html += '<br>';
             html += '<br>';
@@ -127,6 +127,28 @@ function loadRecetas(){
 
         $("#accordionExample").append(html);
       });
+}
+
+function terminateTreatment(ssn){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "processData": false,
+        "data": "{\n\t\"action\": \"TERMINATE_TREATMENT\",\n\t\"ss_num\": \""+ssn+"\"\n}"
+    }
+      
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        if(response['Patient'] == "ended"){
+            alert("Treatment terminated correctly");
+            window.location.replace("paciente.html?ssn="+ssn+"");
+        }
+    });
 }
 
 function getParameterByName(name, url) {

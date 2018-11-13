@@ -80,7 +80,7 @@ function loginPatient(){
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://172.20.10.2:5000/api/v1/patients/search_patients",
+      "url": url,
       "method": "POST",
       "headers": {
         "Content-Type": "application/json; charset=UTF-8"
@@ -98,4 +98,28 @@ function loginPatient(){
         window.location.replace("menuPaciente.html");
     });
 
+}
+
+function reg(){
+    var npac= $("#nPaciente").val();
+
+    var nseg= $("#nSeguro").val();
+    var npol= $("#nPoliza").val();
+
+    alert(npac);
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": url,
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "processData": false,
+        "data": "{\n\t\"action\": \"REGISTER\",\n\t\"name\": \""+npac+"\",\n\t\"ss_num\": \""+nseg+"\",\n\t\"ass_policy\": \""+npol+"\"\n}"
+    }
+    
+    $.ajax(settings).done(function (response) {
+        alert("Usuario Registrado");
+    });
 }

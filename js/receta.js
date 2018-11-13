@@ -70,8 +70,8 @@ function loadPrescription(){
       
       $.ajax(settings).done(function (response) {
         console.log(response);
-        var padecimiento = response.diagnose;
-        var diagnostico = response.sickness;
+        var padecimiento = response.sickness;
+        var diagnostico = response.diagnose;
         var medicina = response.drug;
         var duracion = response.duration;
         var intervalo = response.interval;
@@ -94,11 +94,13 @@ function mod(){
     var f_duracion= $("#duracionId").val();
     var f_intervalo= $("#intervaloId").val();
     var f_cedula= $("#cedulaId").val();
+    var date = getParameterByName('date');
     var ssn = getParameterByName('ssn');
  
     var data_to_send = {
         "action" : "MODIFY_PRESCRIPTION",
         "patient_name" : f_nombre,
+        "date" : date,
         "doctor_name" : f_medico,
         "sickness" : f_padecimiento,
         "diagnose" : f_diagnostico,
@@ -126,8 +128,8 @@ function mod(){
         //alert("S")
         console.log(response);
 
-        if(response['Patient'] == "Added prescription correctly"){
-            alert("Added correctly"+ssn);
+        if(response['Patient'] == "success"){
+            alert("Prescription modified correctly");
             window.location.replace("paciente.html?ssn="+ssn+"");
         }
     });
@@ -176,7 +178,7 @@ function reg(){
         console.log(response);
 
         if(response['Patient'] == "Added prescription correctly"){
-            alert("Added correctly"+ssn);
+            alert("Prescription added correctly");
             window.location.replace("paciente.html?ssn="+ssn+"");
         }
     });
