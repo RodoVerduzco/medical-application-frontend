@@ -1,0 +1,25 @@
+public String createJSON(){
+
+        //JSONArray ja = new JSONArray();
+        try {
+            //Log.d("JSON",""+cursor.moveToNext());
+            //do{
+            
+                JSONObject jo = new JSONObject();
+                jo.put("id", fish.getId());
+                jo.put("title", fish.getName());
+                jo.put("lang", fish.getSpecies());
+                jo.put("score", fish.getAmount());
+                //Log.d("JSON", jo.toString());
+                //ja.put(jo);
+
+            //JSONObject mainObj = new JSONObject();
+            //mainObj.put("data",ja);
+            Log.d("JSON data", mainObj.toString(1));
+            return jo.toString(1);
+        }catch(JSONException jsoe){
+            Log.d("JSON", "Error parsing JSON");
+        }
+
+        return "Error";
+    }
