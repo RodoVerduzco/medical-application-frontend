@@ -77,8 +77,6 @@ function loadRecetas(){
                 showTab = "collapse";
             }
 
-            
-
             html += '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="'+activeTab+'" aria-controls="collapse'+i+'">';
 
             var date = response[i].date;
@@ -103,21 +101,24 @@ function loadRecetas(){
 
             html += '<div id="collapse'+i+'" class="'+showTab+'" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
             html += '<div class="card-body">';
-            html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
-            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
-            html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
-            html += '<br>';
-            html += '<br>';
 
             if(status == "ACTIVE"){
-                html += '<button class="btn btn-primary" onclick="modifyPrescription('+getParameterByName('ssn')+')">';
+                /* html += '<button class="btn btn-primary" onclick="modifyPrescription('+getParameterByName('ssn')+')">';
                 html += 'Modificar receta';
-                html += '</button>';
+                html += '</button>'; */
+                html += '<a class="btn btn-primary" href="modificarReceta.html?ssn='+getParameterByName('ssn')+'&date='+date+'">';
+                html += 'Modificar receta';
+                html += '</a>'; 
                 html += '<button class="btn btn-danger" onclick="terminateDiagnosis('+getParameterByName('ssn')+')">';
                 html += 'Terminar tratamiento';
                 html += '</button>';
             }
 
+            html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
+            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
+            html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
+            html += '<br>';
+            html += '<br>';
        
             html += '</div>';
             html += '</div>';
