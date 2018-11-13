@@ -76,8 +76,6 @@ function loadDocInfo(){
       });
 }
 
-
-
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -97,11 +95,10 @@ function reg(){
     var f_duracion= $("#duracionId").val();
     var f_intervalo= $("#intervaloId").val();
     var f_cedula= $("#cedulaId").val();
-    var ssn = getParameterByName('snn');
+    var ssn = getParameterByName('ssn');
  
     var data_to_send = {
       "action" : "ADD_PRESCRIPTION",
-      "ssn" : "1",
       "patient_name" : f_nombre,
        "doctor_name" : f_medico,
        "sickness" : f_padecimiento,
@@ -113,7 +110,7 @@ function reg(){
        "ssn" : ssn
     }
  
-    //alert(npac);
+    //alert(ssn);
        var settings = {
        "async": true,
        "crossDomain": true,
@@ -128,7 +125,7 @@ function reg(){
      }
  
      $.ajax(settings).done(function (response) {
-       alert("S")
+       //alert("S")
        console.log(response);
      });
  }
