@@ -1,8 +1,8 @@
 var jsonResponse;
 var prescriptions;
-var url = "http://localhost:5000/api/v1/patients/search_patients";
+//var url = "http://localhost:5000/api/v1/patients/search_patients";
 
-//var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
 
 $( document ).ready(function() {
     loadBasicInfoUser();
@@ -88,12 +88,12 @@ function loadRecetas(){
             var symptoms = response[i].symptoms;
             var status = response[i].status;
 
-            alert(status);
+            //alert(status);
 
             html += ' '+date;
             html += '</button>';
 
-            if(i == 0){
+            if(status == "ACTIVE"){
                 html += '<button class="btn btn-primary" onclick="modifyPrescription('+getParameterByName('ssn')+')">';
                 html += 'Modificar receta';
                 html += '</button>';

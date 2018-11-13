@@ -1,5 +1,8 @@
 
-var url = "http://localhost:5000/api/v1/patients/search_patients";
+//var url = "http://localhost:5000/api/v1/patients/search_patients";
+//var url2 = "http://localhost:5000/api/v1/doctors/search_doctors";
+var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+var url2 = "http://172.20.10.2:5000/api/v1/doctors/search_doctors";
 
 $( document ).ready(function() {
     loadBasicInfoUser();
@@ -56,7 +59,7 @@ function loadDocInfo(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://localhost:5000/api/v1/doctors/search_doctors",
+        "url": url2,
         "method": "POST",
         "headers": {
           "Content-Type": "application/json",
@@ -114,7 +117,7 @@ function reg(){
        var settings = {
        "async": true,
        "crossDomain": true,
-       "url": "http://localhost:5000/api/v1/patients/search_patients",
+       "url": url,
        "method": "POST",
        "headers": {
          "Content-Type": "application/json",

@@ -1,63 +1,61 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
 
-    <title>Paciente</title>
+        <title>Paciente</title>
 
-    <script src="js/receta.js"></script>
-  </head>
-  <body>
-    <h1>Receta Médica</h1>
-
-   <!-- <form > -->
-      <!--
-      <div class="form-group">
-        <label for="fecha">Fecha</label>
-        <input type="date" class="form-control" id="fechaId" placeholder="Fecha Diagnostico" name="date">
-        
-      </div> -->
-      <div class="form-group">
-        <label for="paciente">Paciente</label>
-        <input type="text" class="form-control" id="nombrePacienteId" placeholder="Nombre completo paciente" name ="patient_name">
-      </div>
-      <div class="form-group">
-        <label for="medico">Nombre Médico</label>
-        <input type="text" class="form-control" id="medicoId" placeholder="Nombre medico" name="doctor_name">
-      </div>
-      <div class="form-group">
-        <label for="cedula">Cédula profesional</label>
-        <input type="text" class="form-control" id="cedulaId" placeholder="Numero de cedula" name="pi_card">
-      </div>
-      <div class="form-group">
-        <label for="padecimiento">Padecimiento</label>
-        <input type="text" class="form-control" id="padecimientoId" placeholder="Sintomas" name="sickness">
-      </div>
-      <div class="form-group">
-        <label for="diagnostico">Diagnóstico</label>
-        <input type="text" class="form-control" id="diagnosticoId" placeholder="Enfermedad" name="diagnose">
-      </div>
-      <div class="form-group">
-        <label for="medicamento">Medicamento Recetado</label>
-        <input type="text" class="form-control" id="medicamentoId" placeholder="Medicamento" name="drug">
-      </div>
-      
-      <div class="form-group">
-        <label for="duracion">Duración de dosis</label>
-        <input type="text" class="form-control" id="duracionId" placeholder="Tiempo durante el cual debe tomar el medicamento e.g 7 dias" name="duration">
-      </div>
-      <div class="form-group">
-        <label for="interval">Intervalo de dosis</label>
-        <input type="text" class="form-control" id="intervaloId" placeholder="Intervalo entre dosis e.g cada 4 horas" name="interval">
-      </div>
-      
-      <input type="submit" class="primary" onclick="reg();"></div>
-      <!--<button type="submit" class="btn btn-primary" onclick="reg()">Submit</button>-->
-    <!--</form>-->
-  </body>
+        <script src="js/receta.js"></script>
+    </head>
+    <body>
+        <h1 class="text-center display-4">Receta Médica</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="paciente">Paciente</label>
+                        <input type="text" class="form-control" id="nombrePacienteId" placeholder="Nombre completo paciente" name ="patient_name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="medico">Nombre Médico</label>
+                        <input type="text" class="form-control" id="medicoId" placeholder="Nombre medico" name="doctor_name" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="cedula">Cédula profesional</label>
+                        <input type="text" class="form-control" id="cedulaId" placeholder="Numero de cedula" name="pi_card" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="padecimiento">Padecimiento</label>
+                        <textarea type="text" class="form-control" id="padecimientoId" placeholder="Sintomas" name="sickness" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="diagnostico">Diagnóstico</label>
+                        <textarea type="text" class="form-control" id="diagnosticoId" placeholder="Enfermedad" name="diagnose" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicamento">Medicamento Recetado</label>
+                        <input type="text" class="form-control" id="medicamentoId" placeholder="Medicamento" name="drug">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="duracion">Duración de dosis</label>
+                        <input type="text" class="form-control" id="duracionId" placeholder="Tiempo durante el cual debe tomar el medicamento e.g 7 dias" name="duration">
+                    </div>
+                    <div class="form-group">
+                        <label for="interval">Intervalo de dosis</label>
+                        <input type="text" class="form-control" id="intervaloId" placeholder="Intervalo entre dosis e.g cada 4 horas" name="interval">
+                    </div>
+                    
+                    <input type="submit" class="btn btn-primary" onclick="reg();"></div>                    
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </body>
 </html>
