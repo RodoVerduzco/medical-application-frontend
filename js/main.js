@@ -1,6 +1,7 @@
 //var urld = "http://localhost:5000/api/v1/doctors/search_doctors";
 //var url = "http://localhost:5000/api/v1/patients/search_patients";
 var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+var url_doctors = "http://172.20.10.2:5000/api/v1/doctors/search_doctors";
 
 function modify(input)
 {
@@ -53,7 +54,7 @@ function login(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": urld,
+        "url": url_doctors,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json; charset=UTF-8"
@@ -61,14 +62,9 @@ function login(){
         "processData": false,
         "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \""+user+"\",\n\t\"password\": \""+pswd+"\"\n}\n"
     };
-    //console.log(settings);
-    alert(user+" "+pswd);
 
     $.ajax(settings).done(function (response) {
         console.log(response);
-        alert("response");
-
-        alert(response.login);
 
         if(response.login == "false")
             alert("INCORRECT");
@@ -94,17 +90,8 @@ function loginPatient(){
       "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \"" + user + "\"}\n"
     };
 
-    //console.log(settings);
-    //alert("8" + user + "8");
-
     $.ajax(settings).done(function (response) {
       console.log(response);
-      //alert("response");
-
-      //var jsond = JSON.parse(response);
-
-      //alert(response.loginPatient);
-
       if(response["login"] == "false")
         alert("SSN does not exist!");
       else

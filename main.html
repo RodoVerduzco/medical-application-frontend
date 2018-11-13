@@ -23,7 +23,7 @@
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "http://localhost:5000/api/v1/patients/search_patients",
+          "url": "http://172.20.10.2:5000/api/v1/patients/search_patients",
           "method": "POST",
           "headers": {
             "Content-Type": "application/json"
@@ -31,7 +31,7 @@
           "processData": false,
            "data": "{\n\t\"action\": \"REGISTER\",\n\t\"name\": \""+npac+"\",\n\t\"ss_num\": \""+nseg+"\",\n\t\"ass_policy\": \""+npol+"\"\n}"}
         $.ajax(settings).done(function (response) {
-          console.log(response);
+          alert("Usuario Registrado");
         });
       }
           </script>
