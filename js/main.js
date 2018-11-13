@@ -90,10 +90,11 @@ function loginPatient(){
 
       },
       "processData": false,
-      "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \""+user+"\"}\n"
+      "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \"" + user + "\"}\n"
     };
+
     //console.log(settings);
-    //alert(user);
+    //alert("8" + user + "8");
 
     $.ajax(settings).done(function (response) {
       console.log(response);
@@ -103,10 +104,11 @@ function loginPatient(){
 
       //alert(response.loginPatient);
 
-      if(response["Patient"]["login"] == "false")
+      if(response["login"] == "false")
         alert("SSN does not exist!");
       else
         window.location.replace("menuPaciente.html");
     });
 
- }
+}
+
