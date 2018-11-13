@@ -1,5 +1,6 @@
-var urld = "http://localhost:5000/api/v1/doctors/search_doctors";
-var url = "http://localhost:5000/api/v1/patients/search_patients";
+//var urld = "http://localhost:5000/api/v1/doctors/search_doctors";
+//var url = "http://localhost:5000/api/v1/patients/search_patients";
+var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
 
 function modify(input)
 {

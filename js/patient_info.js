@@ -70,10 +70,14 @@ function loadRecetas(){
             html += '<div class="card-header" id="heading'+i+'">';
             html += '<h5 class="mb-0">';
 
-            if(i != 0){
+            var status = response[i].status;
+
+            if(status != "ACTIVE"){
                 actvieTab = "false";
                 showTab = "collapse";
             }
+
+            
 
             html += '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="'+activeTab+'" aria-controls="collapse'+i+'">';
 
@@ -86,12 +90,24 @@ function loadRecetas(){
             var professional_card = response[i].professional_card;
             var sickness = response[i].sickness;
             var symptoms = response[i].symptoms;
-            var status = response[i].status;
+            
 
             //alert(status);
 
             html += ' '+date;
             html += '</button>';
+
+            
+            html += '</h5>';
+            html += '</div>';
+
+            html += '<div id="collapse'+i+'" class="'+showTab+'" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
+            html += '<div class="card-body">';
+            html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
+            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
+            html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
+            html += '<br>';
+            html += '<br>';
 
             if(status == "ACTIVE"){
                 html += '<button class="btn btn-primary" onclick="modifyPrescription('+getParameterByName('ssn')+')">';
@@ -102,14 +118,6 @@ function loadRecetas(){
                 html += '</button>';
             }
 
-            html += '</h5>';
-            html += '</div>';
-
-            html += '<div id="collapse'+i+'" class="'+showTab+'" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
-            html += '<div class="card-body">';
-            html += '<h5>Diagnóstico:</h5> '+diagnose+'. <br>';
-            html += '<h5>Síntomas:</h5> '+sickness+'. <br>';
-            html += '<h5>Tratamiento:</h5> '+drug+', por '+duration+' cada '+interval+'. ';
        
             html += '</div>';
             html += '</div>';
