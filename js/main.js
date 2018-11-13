@@ -49,7 +49,7 @@ function login(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/doctors/search_doctors",
+        "url": "http://172.20.10.2:5000/api/v1/doctors/search_doctors",
         "method": "POST",
         "headers": {
             "Content-Type": "application/json; charset=UTF-8"

@@ -2,6 +2,8 @@ $( document ).ready(function() {
     loadActiveUsers();
 });
 
+var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+
 function loadActiveUsers(){
 
     deleteChildsElement("usuariosActivosLista");
@@ -9,7 +11,7 @@ function loadActiveUsers(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json",
@@ -54,7 +56,7 @@ function loadInactiveUsers(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
         "Content-Type": "application/json",

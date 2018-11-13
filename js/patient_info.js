@@ -1,6 +1,8 @@
 var jsonResponse;
 var prescriptions;
 
+var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+
 $( document ).ready(function() {
     loadBasicInfoUser();
     loadRecetas();
@@ -10,7 +12,7 @@ function loadBasicInfoUser(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
@@ -38,7 +40,7 @@ function loadRecetas(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
@@ -51,13 +53,21 @@ function loadRecetas(){
         console.log(response);
 
         var html = "";
+        var activeTab = "true";
+        var showTab = "collapse show";
 
         html += '<div class="card">';
        
         for (var i = 0; i < response.length; i++) {
             html += '<div class="card-header" id="heading'+i+'">';
             html += '<h5 class="mb-0">';
-            html += '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="true" aria-controls="collapse'+i+'">';
+
+            if(i != 0){
+                actvieTab = "false";
+                showTab = "collapse";
+            }
+
+            html += '<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="'+activeTab+'" aria-controls="collapse'+i+'">';
 
             var date = response[i].date;
             var diagnose = response[i].diagnose;
@@ -68,6 +78,9 @@ function loadRecetas(){
             var professional_card = response[i].professional_card;
             var sickness = response[i].sickness;
             var symptoms = response[i].symptoms;
+            var status = response[i].status;
+
+            alert(status);
 
             html += ' '+date;
             html += '</button>';
@@ -84,7 +97,7 @@ function loadRecetas(){
             html += '</h5>';
             html += '</div>';
 
-            html += '<div id="collapse'+i+'" class="collapse show" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
+            html += '<div id="collapse'+i+'" class="'+showTab+'" aria-labelledby="heading'+i+'" data-parent="#accordionExample">';
             html += '<div class="card-body">';
             html += diagnose+' '+drug+' '+duration+' '+interval+' '+sickness+' '+symptoms+' ';
        
