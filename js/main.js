@@ -76,3 +76,38 @@ function login(){
     });
 
  }
+
+function loginPatient(){
+  var user = $("#inputSSN").val();
+ 
+    var settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json; charset=UTF-8"
+
+      },
+      "processData": false,
+      "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \""+user+"\"}\n"
+    };
+    //console.log(settings);
+    alert(user);
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+      alert("response");
+
+      //var jsond = JSON.parse(response);
+
+      alert(response.login);
+
+      if(response.login == "false")
+        alert("SSN does not exist!");
+      else
+        window.location.replace("menuPaciente.html");
+    });
+
+ }
+
