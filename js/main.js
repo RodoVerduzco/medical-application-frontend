@@ -83,7 +83,7 @@ function loginPatient(){
     var settings = {
       "async": true,
       "crossDomain": true,
-      "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+      "url": "http://172.20.10.2:5000/api/v1/patients/search_patients",
       "method": "POST",
       "headers": {
         "Content-Type": "application/json; charset=UTF-8"
@@ -93,21 +93,20 @@ function loginPatient(){
       "data": "{\n\t\"action\": \"LOGIN\",\n\t\"user\": \""+user+"\"}\n"
     };
     //console.log(settings);
-    alert(user);
+    //alert(user);
 
     $.ajax(settings).done(function (response) {
       console.log(response);
-      alert("response");
+      //alert("response");
 
       //var jsond = JSON.parse(response);
 
-      alert(response.login);
+      //alert(response.loginPatient);
 
-      if(response.login == "false")
+      if(response["Patient"]["login"] == "false")
         alert("SSN does not exist!");
       else
         window.location.replace("menuPaciente.html");
     });
 
  }
-
