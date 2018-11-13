@@ -1,3 +1,6 @@
+var urld = "http://localhost:5000/api/v1/doctors/search_doctors";
+var url = "http://localhost:5000/api/v1/patients/search_patients";
+
 function modify(input)
 {
     var id =input;
@@ -6,7 +9,7 @@ function modify(input)
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
@@ -28,7 +31,7 @@ function modify2(input)
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.8:5000/api/v1/patients/search_patients",
+        "url": url,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json"
@@ -49,7 +52,7 @@ function login(){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://172.20.10.2:5000/api/v1/doctors/search_doctors",
+        "url": urld,
         "method": "POST",
         "headers": {
             "Content-Type": "application/json; charset=UTF-8"

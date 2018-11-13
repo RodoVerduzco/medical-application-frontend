@@ -2,7 +2,7 @@ var jsonResponse;
 var prescriptions;
 var url = "http://localhost:5000/api/v1/patients/search_patients";
 
-var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+//var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
 
 $( document ).ready(function() {
     loadBasicInfoUser();
@@ -36,6 +36,13 @@ function loadBasicInfoUser(){
         $("#polizaHeader").append("<h4'>"+poliza+"</h4>");
     });
 }
+
+function addPrescription(){
+    var ssn = $("#ssnHeader").text();
+
+    window.location.replace("crearReceta.html?ssn="+ssn);
+}
+
 
 function loadRecetas(){
     var settings = {

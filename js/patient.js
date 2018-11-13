@@ -2,7 +2,7 @@ $( document ).ready(function() {
     loadActiveUsers();
 });
 
-var url = "http://172.20.10.2:5000/api/v1/patients/search_patients";
+var url = "http:/localhost:5000/api/v1/patients/search_patients";
 
 function loadActiveUsers(){
 
